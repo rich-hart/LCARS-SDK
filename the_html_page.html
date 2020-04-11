@@ -1,0 +1,351 @@
+<!-- IRRIGATION -->
+
+<!-- LCARS SDK 16323.311
+- This file is a part of the LCARS SDK.
+- https://github.com/AricwithanA/LCARS-SDK/blob/master/LICENSE.md
+- For more information please go to http://www.lcarssdk.org.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=1600, height=960" />
+
+    <title>LCARS | Irrigation Sub-System</title>
+
+    <!--<base href="/">-->
+
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/css/lcarssdk.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/addons/scrollbutton/scrollbutton.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/addons/levelbar/levelbar.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/templates/bracket/bracket.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/templates/dialog/dialog.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/templates/framing/framing.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/templates/button/button.css">
+    <link rel="stylesheet" type="text/css" href="../lcarssdk/themes/theme_ussNotAffiliated.css">
+
+    <link rel="stylesheet" type="text/css" href="module.css"></head>
+
+</head>
+
+<body ontouchstart="" onload="">
+
+
+<div class="wrapper row flexh" id="wpr_viewport">
+
+    <!--Main Frame-->
+    <div class="wrapper column flexv flexch" id="wpr_mainView">
+        <!--Header-->
+        <div class="row header flexh">
+            <!--Header Column-->
+            <div class="column flexv">
+                <a class="button bg-green-3"  data-label="LCARS - 7102" href="../garage"></a>
+                <div class="elbow bottom-left bg-green-4 flexcv default horizontal">
+                    <div class="bar">
+                        <div class="block"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper flexch flexv">
+                <!--Header Content-->
+                <div class="wrapper content flexcv">
+			<div class="title">Pod Bay - Irrigation Sub-System</div>
+ 			<div class="subtitle">Star Date:&nbsp; <span id="StarDate"></span></div>
+                </div>
+                <!--Header Bar Row-->
+                <div class="row frame flexh">
+                    <div class="bar bg-blue-2"></div>
+                    <div class="bar bg-blue-1"></div>
+                    <div class="bar bg-blue-3"></div>
+                    <div class="bar bg-green-1 flexch"></div>
+                    <div class="bar bg-blue-3"></div>
+                    <div class="bar bg-blue-2"></div>
+                    <div class="bar bg-blue-3"></div>
+                </div>
+            </div>
+        </div>
+        <!--Body-->
+        <div class="wrapper main flexh flexcv">
+            <!--Body Button Column-->
+            <div class="wrapper column flexv">
+                <div class="elbow top-left bg-green-4 step-two default horizontal">
+                    <div class="bar">
+                        <div class="block"></div>
+                    </div>
+                </div>
+                <div class="block bg-blue-4 step-two" data-label="Zone 1"></div>
+                <div class="block bg-green-4 step-two" data-label="Zone 2"></div>
+                <div class="block bg-green-1 step-two" data-label="Zone 3"></div>
+                <div class="block bg-green-2 step-two" data-label="Zone 4"></div>
+		<div class="block bg-green-1 step-two" data-label="Zone 5"></div>
+		<div class="block bg-green-4 step-two" data-label="Zone 6"></div>
+                <div class="block bg-blue-4 step-two" data-label="Zone 7"></div>
+               <div class="elbow bottom-left bg-green-4 flexcv default horizontal">
+                    <div class="bar">
+                        <div class="block"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Body Bar Row-->
+            <div class="column flexch flexv">
+                <div class="row flexh frame">
+                    <div class="bar bg-green-4"></div>
+                    <div class="bar bg-blue-4 small"></div>
+                    <div class="bar bg-blue-1"></div>
+                    <div class="bar bg-green-3 flexch"></div>
+                    <div class="bar bg-blue-2"></div>
+                    <div class="bar bg-green-3"></div>
+                    <div class="bar bg-green-1"></div>
+                </div>
+<!-- **** Body Content ********************************************** -->
+
+		<!-- ZONE 1 -->
+		<div class="row BodyHeader"><div class="column BodyHeader"></div></div>
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_1_status"></div>
+			<div class="column Timer" id="zone_1_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z1_on" data-altlabel="On" href="javascript:ZoneSwitch('1','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z1_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('1','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z1_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 2 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_2_status"></div>
+			<div class="column Timer" id="zone_2_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z2_on" data-altlabel="On" href="javascript:ZoneSwitch('2','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z2_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('2','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z2_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 3 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_3_status">Off</div>
+			<div class="column Timer" id="zone_3_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z3_on" data-altlabel="On" href="javascript:ZoneSwitch('3','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z3_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('3','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z3_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 4 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_4_status">Off</div>
+			<div class="column Timer" id="zone_4_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z4_on" data-altlabel="On" href="javascript:ZoneSwitch('4','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z4_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('4','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z4_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 5 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_5_status">Off</div>
+			<div class="column Timer" id="zone_5_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z5_on" data-altlabel="On" href="javascript:ZoneSwitch('5','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z5_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('5','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z5_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 6 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_6_status">Off</div>
+			<div class="column Timer" id="zone_6_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z6_on" data-altlabel="On" href="javascript:ZoneSwitch('6','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z6_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('6','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z6_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+		<!-- ZONE 7 -->
+		<div class="row Zone">
+			<div class="column ZoneStatus" id="zone_7_status">Off</div>
+			<div class="column Timer" id="zone_7_timer"></div>
+			<div class="column On"><a class="button left bg-blue-3" id="button_z7_on" data-altlabel="On" href="javascript:ZoneSwitch('7','ON')"></a></div>
+			<div class="column Off"><a class="button right bg-green-3" id="button_z7_off" data-altlabel="Off" style="text-align:right;" href="javascript:ZoneSwitch('7','OFF')"></a></div>
+			<div class="column Schedule"><div class="button pill bg-green-1" id="button_z7_sched" data-altlabel="Schedule" style="text-align:center;"></div></div>
+		</div>
+
+
+<!-- **** End Body Content ********************************************** -->
+		<!-- Body Footer -->
+                <div class="wrapper content flexcv" style=" overflow:auto;"></div>
+                <div class="row frame flexh">
+                    <div class="bar bg-blue-2"></div>
+                    <div class="bar bg-blue-1"></div>
+                    <div class="bar bg-blue-3"></div>
+                    <div class="bar bg-green-1 flexch"></div>
+                    <div class="bar bg-blue-3" data-label="A Hobbs Squad Joint"></div>
+                    <div class="bar bg-blue-2"></div>
+                    <div class="bar bg-blue-3"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script language="javascript">
+	var sd = new Worker("../scripts/StarDate.js");
+        sd.onmessage = function(event)
+        {
+            document.getElementById("StarDate").textContent = event.data;
+        };
+
+	function ZoneSwitch(zone, command)
+	{
+		var req = new XMLHttpRequest();
+		req.open("POST", "http://192.168.1.169:8080/rest/items/sprinkler_z" + zone + "_switch", true);
+		req.setRequestHeader("Content-Type", "text/plain");
+		req.setRequestHeader("Accept", "application/json");
+		req.send(command);
+	}
+</script>
+
+<!-- Web Workers -->
+<script  type="text/javascript">
+	<!-- Zone 1 -->
+	var ws1 = new Worker("workers/poll_zone_1_status.js");
+        ws1.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_1_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_1_status").style.color = 'red';
+            }
+            document.getElementById("zone_1_status").textContent = event.data;
+        };
+	var wt1 = new Worker("workers/poll_zone_1_time.js");
+        wt1.onmessage = function(event)
+        {
+            document.getElementById("zone_1_timer").textContent = event.data;
+        };
+
+	<!-- Zone 2 -->
+	var ws2 = new Worker("workers/poll_zone_2_status.js");
+        ws2.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_2_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_2_status").style.color = 'red';
+            }
+            document.getElementById("zone_2_status").textContent = event.data;
+        };
+	var wt2 = new Worker("workers/poll_zone_2_time.js");
+        wt2.onmessage = function(event)
+        {
+            document.getElementById("zone_2_timer").textContent = event.data;
+        };
+
+       	<!-- Zone 3 -->
+	var ws3 = new Worker("workers/poll_zone_3_status.js");
+        ws3.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_3_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_3_status").style.color = 'red';
+            }
+            document.getElementById("zone_3_status").textContent = event.data;
+        };
+	var wt3 = new Worker("workers/poll_zone_3_time.js");
+        wt3.onmessage = function(event)
+        {
+            document.getElementById("zone_3_timer").textContent = event.data;
+        };
+
+       	<!-- Zone 4 -->
+	var ws4 = new Worker("workers/poll_zone_4_status.js");
+        ws4.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_4_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_4_status").style.color = 'red';
+            }
+            document.getElementById("zone_4_status").textContent = event.data;
+        };
+	var wt4 = new Worker("workers/poll_zone_4_time.js");
+        wt4.onmessage = function(event)
+        {
+            document.getElementById("zone_4_timer").textContent = event.data;
+        };
+
+       	<!-- Zone 5 -->
+	var ws5 = new Worker("workers/poll_zone_5_status.js");
+        ws5.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_5_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_5_status").style.color = 'red';
+            }
+            document.getElementById("zone_5_status").textContent = event.data;
+        };
+	var wt5 = new Worker("workers/poll_zone_5_time.js");
+        wt5.onmessage = function(event)
+        {
+            document.getElementById("zone_5_timer").textContent = event.data;
+        };
+
+       	<!-- Zone 6 -->
+	var ws6 = new Worker("workers/poll_zone_6_status.js");
+        ws6.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_6_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_6_status").style.color = 'red';
+            }
+            document.getElementById("zone_6_status").textContent = event.data;
+        };
+	var wt6 = new Worker("workers/poll_zone_6_time.js");
+        wt6.onmessage = function(event)
+        {
+            document.getElementById("zone_6_timer").textContent = event.data;
+        };
+
+       	<!-- Zone 7 -->
+	var ws7 = new Worker("workers/poll_zone_7_status.js");
+        ws7.onmessage = function(event)
+        {
+            if (event.data == 'ON')
+            {
+                document.getElementById("zone_7_status").style.color = 'green';
+            }
+            else
+            {
+                document.getElementById("zone_7_status").style.color = 'red';
+            }
+            document.getElementById("zone_7_status").textContent = event.data;
+        };
+	var wt7 = new Worker("workers/poll_zone_7_time.js");
+        wt7.onmessage = function(event)
+        {
+            document.getElementById("zone_7_timer").textContent = event.data;
+        };
+</script>
+</body>
+</html>

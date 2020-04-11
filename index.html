@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <title>LCARS SDK 4.0</title>
+
+    <!-- Core JS -->
+    <script type="text/javascript" src="lcars-sdk/core/jquery.js"></script>
+    <script type="text/javascript" src="lcars-sdk/core/jquery.mobile-events.min.js"></script>
+    <script type="text/javascript" src="lcars-sdk/core/arrive.js"></script>
+    <script type="text/javascript" src="lcars-sdk/core/lcars-sdk.js"></script>
+
+    <!-- Elements and Widgets JS-->    
+    <script type="text/javascript" src="lcars-sdk/elements/aside.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/bar.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/block.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/button.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/cap.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/column.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/complex-button.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/content.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/details.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/elbow.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/endcap.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/footer.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/header.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/html-tag.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/img.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/main.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/nav.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/oval.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/row.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/section.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/svg.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/text.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/title.js"></script>
+    <script type="text/javascript" src="lcars-sdk/elements/wrapper.js"></script>
+    <script type="text/javascript" src="lcars-sdk/widgets/sdk_solid-level-bar/solid-level-bar.js"></script>
+    <script type="text/javascript" src="lcars-sdk/widgets/sdk_default-bracket/default-bracket.js"></script>
+    <script type="text/javascript" src="lcars-sdk/widgets/sdk_default-bar-frame/default-bar-frame.js"></script>
+    <script type="text/javascript" src="lcars-sdk/widgets/sdk_scroll-button/scroll-button.js"></script>
+
+    <!-- Project Specific JS-->        
+    <!-- script type="text/javascript" src="module.js"></script>-->	   
+
+    <!-- Core and Widgets CSS-->    
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/core/lcars-sdk.css">
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/widgets/sdk_solid-level-bar/solid-level-bar.css">
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/widgets/sdk_default-bracket/default-bracket.css">
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/widgets/sdk_default-bar-frame/default-bar-frame.css">
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/widgets/sdk_scroll-button/scroll-button.css">
+
+    <!-- Color Theme CSS-->    
+    <link rel="stylesheet" type="text/css" href="lcars-sdk/themes/sdk_theme-default.css"> 
+
+    <!-- Project Specific CSS-->    
+    <!-- <link rel="stylesheet" type="text/css" href="module.css">-->
+    
+</head>
+
+<body ontouchstart="" onload="">
+<div class="wrapper row flexh" id="wpr_viewport">
+</div>
+</body>
+<script>
+function home() {
+    lcarsgen.container=document.getElementById("can");
+    lcarsgen.next_x = 10
+    lcarsgen.next_y = 10
+    lcarsgen.knee({x:10, height2: 40})
+    save_x = lcarsgen.next_x
+    lcarsgen.button({x:10, text:"Light", id:"b_light"})
+    lcarsgen.button({x:10, text:"Heating", id:"b_heating"})
+    lcarsgen.button({x:10, text:"Blinds", id:"b_blinds"})
+    lcarsgen.button({x:10, text:"Weather", id:"b_weather"})
+    lcarsgen.button({x:10, text:"Movies", id:"b_movies"})
+    lcarsgen.button({x:10, text:"Music", id:"b_music"})
+    lcarsgen.button({x:10, text:"Config", id:"b_config"})
+    lcarsgen.knee({x:10, height1: 120, height2: 40, type:"bottomleft"})
+    save_y = lcarsgen.next_y - lcarsgen.spacing - 40
+ 
+    // top bar
+    lcarsgen.next_x=save_x
+    lcarsgen.button({y: 10, width: 310, height: 40} )
+    lcarsgen.button({y: 10, width: 310, height: 40} )
+
+    // save for text display
+    tx = lcarsgen.next_x-lcarsgen.spacing
+    lcarsgen.button({y: 10, width: 55, height: 40, type:"rounded_right"} )
+
+    // bottom bar
+    lcarsgen.next_x=save_x
+    lcarsgen.button({y: save_y, width: 310, height: 40} )
+    lcarsgen.button({y: save_y, width: 310, height: 40} )
+    lcarsgen.button({y: save_y, width: 55, height: 40, type:"rounded_right"} )
+
+    lcarsgen.text({x:tx, y: 50, height: 40, text:"H.11 CONTROL", text_align: "right"} )
+}
+
+//LCARS.element.sdk.solidLevelBar = function(oDef){};
+//Append To Body
+//$('body').append( LCARS.create({type:'button', color:'bg-blue-1', label:'Button'}).dom );
+//$('body').append( LCARS.create({type:'button', color:'bg-blue-1', label:'Button'}).dom );
+//$('body').append( LCARS.create({type:'bar', color:'bg-blue-1', label:'14', size:'medium'}).dom );
+//$('body').append( LCARS.create({type:'solidLevelBar', namespace:'sdk', color:'bg-blue-4', level:15, label:'15'}).dom );
+$('body').append( LCARS.create({type:'scrollButton', namespace:'sdk', color:'bg-blue-4', target:'#idOfScrollArea'}).dom );
+
+//home();
+
+</script>
+
+
+</html>
+
